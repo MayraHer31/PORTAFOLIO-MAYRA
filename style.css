@@ -1,0 +1,127 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  h1, h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #00343A;
+  }
+  
+  section {
+    padding: 20px 0;
+  }
+  
+  #menu {
+    display: none;
+    background-color: #00343A;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .menu-icon {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #F09300;
+    color: #fff;
+    text-align: right;
+  }
+  
+  #menu a {
+    color: #FD3866; /* Color inicial (de tu paleta) */
+    padding: 10px;
+    display: inline-block;
+    text-decoration: none; /* Sin subrayado */
+    transition: transform 0.3s ease, color 0.3s ease; /* Suaviza la transición al pasar el ratón */
+  }
+  
+  #menu a:hover {
+    color: #078E92; /* Cambia el color (de tu paleta) al pasar el ratón */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+  }
+  
+  
+  .skill-card {
+    background-color: #FD3866;
+    color: #fff;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  button {
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #078E92;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  button:hover {
+    background-color: #065867;
+  }
+  
+  .proyecto {
+    padding: 20px;
+    border: 1px solid #333;
+    margin: 20px auto;
+    width: 90%;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .proyecto.expanded {
+    transform: scale(1.05);
+  }
+  
+  .dark-mode {
+    background-color: #222;
+    color: #fff;
+  }
+  
+  /* Formulario de contacto */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  form label, form input, form textarea, form button {
+    margin-bottom: 10px;
+    width: 80%;
+    max-width: 400px;
+  }
+  
+  form button {
+    background-color: #00343A;
+    color: #fff;
+    padding: 10px;
+    width: 150px;
+  }
+  
+  form button:hover {
+    background-color: #F09300;
+  }
+  
+  @media (min-width: 768px) {
+    #menu {
+      display: block;
+    }
+    .menu-icon {
+      display: none;
+    }
+  }
+  

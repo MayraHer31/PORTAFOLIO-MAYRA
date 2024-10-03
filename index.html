@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio de Mayra Aparcana</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Menú de navegación -->
+  <header>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav id="menu">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#skills">Skills</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#formacion">Formación</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- Presentación -->
+  <section id="intro">
+    <h1></h1>
+    <p> Hola, mi nombre es Mayra Aparcana y construyo páginas web. Soy desarrolladora front-end en formación.</p>
+    <button onclick="toggleTheme()">Cambiar a modo oscuro</button>
+  </section>
+
+  <!-- Sobre mí -->
+  <section id="sobre-mi">
+    <h2>Sobre mí</h2>
+    <p>¡Hola! Soy Mayra Aparcana y me encanta crear soluciones web creativas.</p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill-card">HTML</div>
+    <div class="skill-card">CSS</div>
+    <div class="skill-card">JavaScript</div>
+    <div class="skill-card">React</div>
+  </section>
+
+  <!-- Hobbies -->
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+    <p>Me encanta el patinaje y la música.</p>
+  </section>
+
+  <!-- Formación -->
+  <section id="formacion">
+    <h2>Formación</h2>
+    <p>Oracle Next Education</p>
+  </section>
+
+  <!-- Proyectos -->
+  <section id="proyectos">
+    <h2>Proyectos</h2>
+    <div class="proyecto">
+      <p>Proyecto 1</p>
+    </div>
+    <div class="proyecto">
+      <p>Proyecto 2</p>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre">
+      <label for="email">Email:</label>
+      <input type="email" id="email">
+      <label for="asunto">Asunto:</label>
+      <input type="text" id="asunto">
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -10,11 +10,11 @@
 <body>
   <!-- Menú de navegación -->
   <header class="cabecera">
-    <img class="cabecera__logo" src="img/logo mayra.png" alt="Logo">
+    <img class="cabecera__logo animacion" src="img/logo mayra.png" alt="Logo">
     <nav id="menu" class="navegacion">   
       <ul class="navegacion__lista">
         <li class="navegacion__elemento"><a href="#sobre-mi">Sobre mí</a></li>
-        <li class="navegacion__elemento"><a href="#skills">Habilidades</a></li>
+        <li class="navegacion__elemento"><a href="#habilidades">Habilidades</a></li>
         <li class="navegacion__elemento"><a href="#hobbies">Hobbies</a></li>
         <li class="navegacion__elemento"><a href="#proyectos">Proyectos</a></li>
         <li class="navegacion__elemento"><a href="#formacion">Formación</a></li>
@@ -43,10 +43,9 @@
     </ul>
   </section>
 
-  <!-- Skills -->
 <!-- Skills --> 
 <section class="skills" id="habilidades">
-  <h2 class="skills__titulo">Skills</h2>
+  <h2 class="skills__titulo">Habilidades</h2>
   <ul class="habilidades__lista">
     <li class="habilidades__elemento">
       <svg class="habilidades__icono" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -103,6 +102,34 @@
     <div class="proyecto">
       <p>Proyecto 2</p>
     </div>
+
+
+  <!-- Experiencia -->
+  <section id="experiencia">
+    <h2>Experiencia</h2>
+    <div class="experiencia">
+      <p>Experiencia 1</p>
+    </div>
+    <div class="experiencia">
+      <p>Experiencia 2</p>
+    </div>
+
+<!-- Contacto -->
+<section id="contacto">
+  <h2>Contacto</h2>
+  <form class="contacto__formulario">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+    
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+    
+    <button type="submit">Enviar</button>
+  </form>
+</section>
 
 
   <script src="script.js"></script>

@@ -1,10 +1,20 @@
+@keyframes pulso {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animacion {
+  animation: pulso 5s infinite;
+}
+
 /* General */
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif; /* Cambio de tipografía */
   margin: 0;
   padding: 0;
-  background-color: #FFF7BC;
-  color: #333;
+  background-color: #FFD166; /* Fondo principal */
+  color: #073B4C; /* Texto principal */
 }
 
 /* Header */
@@ -12,9 +22,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #E64921;
+  background-color: #EF476F; /* Fondo de la cabecera */
   padding: 1rem;
-  color: #fff;
+  color: #FFF; /* Texto de la cabecera */
 }
 
 .cabecera__logo {
@@ -28,9 +38,14 @@ body {
 }
 
 .navegacion__elemento a {
-  color: #fff;
+  color: #FFF; /* Texto de enlaces en la cabecera */
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navegacion__elemento a:hover {
+  color: #06D6A0; /* Color de hover */
 }
 
 /* Presentación */
@@ -39,7 +54,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background-color: #FFF7BC;
+  background-color: #FFD166; /* Mantén el fondo principal */
 }
 
 .presentacion__foto {
@@ -56,20 +71,20 @@ body {
 
 /* Ajustar el tamaño de las imágenes en 'Sobre mí' */
 .redes__img img {
-  width: 50px; /* Ajusta el tamaño según tus necesidades */
-  height: auto; /* Mantiene las proporciones de las imágenes */
+  width: 50px; 
+  height: auto; 
 }
 
 /* Eliminar las viñetas de la lista */
 .redes {
-  list-style: none; /* Quita las viñetas */
-  padding: 0; /* Elimina el padding interno de la lista */
+  list-style: none;
+  padding: 0;
 }
 
 /* Estilo adicional para centrar y espaciar los íconos */
 .redes__img {
   display: inline-block;
-  margin: 0 15px; /* Espaciado entre los íconos */
+  margin: 0 15px;
 }
 
 /* Skills */
@@ -78,7 +93,9 @@ body {
   justify-content: center;
   gap: 1.5rem;
   padding: 2rem;
-  list-style: none
+  list-style: none;
+  background-color: #FFD166; /* Fondo de secciones secundarias */
+  color: #FFF; /* Texto de secciones secundarias */
 }
 
 .habilidades__elemento {
@@ -88,53 +105,138 @@ body {
 .habilidades__icono {
   width: 50px;
   height: auto;
-  color: #1f348f; /* Cambia este valor al color que desees */
-  }
+  color: #1F348F; 
+} 
 
 /* Hobbies, formación, proyectos */
 #hobbies, #formacion, #proyectos {
   padding: 2rem;
   text-align: center;
+  background-color: #FFD166; /* Fondo de secciones secundarias */
+  color: #FFF; /* Texto de secciones secundarias */
+}
+
+/* Sección de Contacto */
+#contacto {
+  padding: 2rem;
+  text-align: center;
+  background-color: #06D6A0; /* Fondo para la sección de contacto */
+  color: #000000; /* Texto para la sección de contacto */
+}
+
+.contacto__formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contacto__formulario label {
+  display: block;
+  text-align: left;
+  width: 100%;
+  font-weight: bold;
+}
+
+.contacto__formulario input,
+.contacto__formulario textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contacto__formulario button {
+  background-color: #FFD166;
+  color: #000000;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.contacto__formulario button:hover {
+  background-color: #028A57;
 }
 
 /* Footer */
 footer {
-  background-color: #333;
-  color: #fff;
+  background-color: #EF476F; /* Fondo del footer */
+  color: #FFF; /* Texto del footer */
   text-align: center;
   padding: 1rem;
   margin-top: 2rem;
 }
 
 .dark-mode {
-  background-color: #333;
-  color: #e049a6;
+  background-color: #073B4C; /* Fondo general para dark mode */
+  color: #FFD166; /* Texto para dark mode */
 }
 
 .dark-mode .cabecera {
-  background-color: #111;
+  background-color: #073B4C; /* Cabecera para dark mode */
 }
 
 .dark-mode a {
-  color: #E64921;
+  color: #FFD166; /* Enlaces para dark mode */
 }
 
 .dark-mode .presentacion {
-  background-color: #333; /* Actualiza el color de fondo de la sección presentacion */
+  background-color: #073B4C; /* Fondo de presentación para dark mode */
 }
 
+/* Agregando más secciones */
+.dark-mode #sobre-mi,
+.dark-mode #hobbies, 
+.dark-mode #formacion, 
+.dark-mode #proyectos {
+  background-color: #073B4C;
+}
+
+.dark-mode .habilidades__lista {
+  background-color: #073B4C !important; /* Fondo para dark mode */
+  color: #FFD166 !important; /* Texto para dark mode */
+}
+
+.dark-mode .card {
+  background-color: #073B4C; /* Fondo para tarjetas (card) */
+  color: #FFD166; /* Texto para tarjetas en modo oscuro */
+}
+
+.dark-mode #contacto {
+  background-color: #073B4C; /* Fondo para la sección de contacto en modo oscuro */
+  color: #FFD166; /* Texto para la sección de contacto en modo oscuro */
+}
+
+.dark-mode .contacto__formulario input,
+.dark-mode .contacto__formulario textarea {
+  background-color: #333; /* Fondo de los inputs en modo oscuro */
+  color: #FFF; /* Texto de los inputs en modo oscuro */
+}
+
+.dark-mode .contacto__formulario button {
+  background-color: #FFD166;
+  color: #073B4C;
+}
+
+
+.dark-mode footer {
+  background-color: #073B4C; /* Fondo para footer */
+}
 
 /* Responsivo */
 @media (max-width: 768px) {
   .cabecera {
-      flex-direction: column;
+    flex-direction: column;
   }
-
   .navegacion__lista {
-      flex-direction: column;
+    flex-direction: column;
   }
-
   .habilidades__lista {
-      flex-direction: column;
+    flex-direction: column;
   }
 }

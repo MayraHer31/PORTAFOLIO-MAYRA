@@ -1,127 +1,140 @@
 /* General */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #fff;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    max-width: 1200px;
-    margin: auto;
+  font-family: 'DM Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FFF7BC;
+  color: #333;
+}
+
+/* Header */
+.cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E64921;
+  padding: 1rem;
+  color: #fff;
+}
+
+.cabecera__logo {
+  max-width: 100px;
+}
+
+.navegacion__lista {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navegacion__elemento a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Presentación */
+.presentacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #FFF7BC;
+}
+
+.presentacion__foto {
+  border-radius: 50%;
+  width: 300px;
+  margin-right: 1rem;
+}
+
+/* Sección 'Sobre mí' */
+#sobre-mi {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Ajustar el tamaño de las imágenes en 'Sobre mí' */
+.redes__img img {
+  width: 50px; /* Ajusta el tamaño según tus necesidades */
+  height: auto; /* Mantiene las proporciones de las imágenes */
+}
+
+/* Eliminar las viñetas de la lista */
+.redes {
+  list-style: none; /* Quita las viñetas */
+  padding: 0; /* Elimina el padding interno de la lista */
+}
+
+/* Estilo adicional para centrar y espaciar los íconos */
+.redes__img {
+  display: inline-block;
+  margin: 0 15px; /* Espaciado entre los íconos */
+}
+
+/* Skills */
+.habilidades__lista {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  list-style: none
+}
+
+.habilidades__elemento {
+  text-align: center;
+}
+
+.habilidades__icono {
+  width: 50px;
+  height: auto;
+  color: #1f348f; /* Cambia este valor al color que desees */
   }
-  
-  h1, h2 {
-    text-align: center;
-    margin-top: 20px;
-    color: #00343A;
+
+/* Hobbies, formación, proyectos */
+#hobbies, #formacion, #proyectos {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #e049a6;
+}
+
+.dark-mode .cabecera {
+  background-color: #111;
+}
+
+.dark-mode a {
+  color: #E64921;
+}
+
+.dark-mode .presentacion {
+  background-color: #333; /* Actualiza el color de fondo de la sección presentacion */
+}
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .cabecera {
+      flex-direction: column;
   }
-  
-  section {
-    padding: 20px 0;
+
+  .navegacion__lista {
+      flex-direction: column;
   }
-  
-  #menu {
-    display: none;
-    background-color: #00343A;
-    padding: 10px;
-    text-align: center;
+
+  .habilidades__lista {
+      flex-direction: column;
   }
-  
-  .menu-icon {
-    padding: 10px;
-    cursor: pointer;
-    background-color: #F09300;
-    color: #fff;
-    text-align: right;
-  }
-  
-  #menu a {
-    color: #FD3866; /* Color inicial (de tu paleta) */
-    padding: 10px;
-    display: inline-block;
-    text-decoration: none; /* Sin subrayado */
-    transition: transform 0.3s ease, color 0.3s ease; /* Suaviza la transición al pasar el ratón */
-  }
-  
-  #menu a:hover {
-    color: #078E92; /* Cambia el color (de tu paleta) al pasar el ratón */
-    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
-  }
-  
-  
-  .skill-card {
-    background-color: #FD3866;
-    color: #fff;
-    padding: 10px;
-    margin: 10px;
-    display: inline-block;
-    text-align: center;
-    border-radius: 5px;
-  }
-  
-  button {
-    margin: 20px;
-    padding: 10px 20px;
-    background-color: #078E92;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  button:hover {
-    background-color: #065867;
-  }
-  
-  .proyecto {
-    padding: 20px;
-    border: 1px solid #333;
-    margin: 20px auto;
-    width: 90%;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .proyecto.expanded {
-    transform: scale(1.05);
-  }
-  
-  .dark-mode {
-    background-color: #222;
-    color: #fff;
-  }
-  
-  /* Formulario de contacto */
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  form label, form input, form textarea, form button {
-    margin-bottom: 10px;
-    width: 80%;
-    max-width: 400px;
-  }
-  
-  form button {
-    background-color: #00343A;
-    color: #fff;
-    padding: 10px;
-    width: 150px;
-  }
-  
-  form button:hover {
-    background-color: #F09300;
-  }
-  
-  @media (min-width: 768px) {
-    #menu {
-      display: block;
-    }
-    .menu-icon {
-      display: none;
-    }
-  }
-  
+}

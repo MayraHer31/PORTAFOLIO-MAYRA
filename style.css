@@ -1,3 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Mono';
+  text-decoration: none;
+  scroll-behavior: smooth;
+  list-style: none;
+}
+
+/* Animación del Logotipo */
 @keyframes pulso {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
@@ -10,118 +21,545 @@
 
 /* General */
 body {
-  font-family: 'Montserrat', sans-serif; /* Cambio de tipografía */
+  font-family: 'Roboto Mono', sans-serif; 
   margin: 0;
   padding: 0;
-  background-color: #FFD166; /* Fondo principal */
-  color: #073B4C; /* Texto principal */
+  background-color: #f8d964; 
+  color: #1E211C; 
+  padding-top: 120px; /* Para asegurarse de que el contenido no esté oculto detrás de la cabecera */
 }
 
-/* Header */
+/* Cabecera fija */
 .cabecera {
+  position: fixed;
+  top: 10px; /* Deja espacio en la parte superior */
+  left: 1%;  /* Deja espacio a la izquierda */
+  right: 1%; /* Deja espacio a la derecha */
+  width: 98%; /* Ajusta el ancho para dejar espacio a los lados */
+  height: 70px;
+  z-index: 1000;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  background-color: #EF476F; /* Fondo de la cabecera */
-  padding: 1rem;
-  color: #FFF; /* Texto de la cabecera */
+  background-color: #a1dcc8;
+  color: #FFF;
+  border-bottom: 3px solid #ffffff; /* Borde inferior */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para efecto "flotante" */
+  transition: all 0.3s ease; /* Transición suave para cambios */
 }
 
 .cabecera__logo {
   max-width: 100px;
 }
 
+/*Ajustes de la navegación*/
 .navegacion__lista {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 1rem; 
+  padding: 0;
+  margin: 0;
 }
 
+.navegacion__elemento {
+  display: inline-block; /* Asegura que los elementos sean en línea */
+  margin-right: 0.7rem;
+}
+
+/* Texto de enlaces en la cabecera */
 .navegacion__elemento a {
-  color: #FFF; /* Texto de enlaces en la cabecera */
+  font-family: 'Roboto Mono', sans-serif;
+  color: #FFF;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1rem;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .navegacion__elemento a:hover {
-  color: #06D6A0; /* Color de hover */
+  color: #078E92; 
+}
+
+.navegacion__elemento:last-child {
+  margin-right: 0%; /* Elimina el margen derecho del último elemento */
+}
+
+
+/* Botón de 'light/dark mode' */
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 5%;
+  margin-left: 2%;
+  margin-top: 0;
+  padding: 0.2rem 0.2rem;
+  border:2px solid transparent;
+  background-color: transparent;
+  cursor: pointer; 
+  transition: border-color 0.3s ease;
+}
+
+.theme-icon {
+  width: 20px;
+  margin-right: 4px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px; /* Reduce el ancho del botón */
+  height: 20px; /* Reduce la altura del botón */
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #F8BBD0;
+  transition: 0.4s;
+  border-radius: 20px; /* Ajusta el borde redondeado */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px; /* Reduce la altura del deslizador */
+  width: 16px; /* Reduce el ancho del deslizador */
+  left: 2px; /* Ajusta la posición a la izquierda */
+  bottom: 2px; /* Ajusta la posición inferior */
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #F8BBD0;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px); /* Ajusta la distancia de desplazamiento a 20px para mantenerse dentro del contenedor */
 }
 
 /* Presentación */
 .presentacion {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  background-color: #FFD166; /* Mantén el fondo principal */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  padding: 0.5rem; /*Espacio del theme switcher a la presentación*/
+  gap: 5rem; /* Espacio entre los elementos */
+  
 }
 
 .presentacion__foto {
-  border-radius: 50%;
-  width: 300px;
-  margin-right: 1rem;
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 10px 10px 0px 0px white,
+              15px 15px 20px rgba(0, 0, 0, 0.1); /* Sombra para efecto flotante */
+}
+
+.presentacion__texto {
+  text-align: left;
+  max-width: 600px;
+}
+
+.presentacion__texto h1 {
+  font-family: 'Roboto Mono', sans-serif;
+  font-weight: 700;
+  font-size: 75px;
+  margin: 0;
+}
+
+.presentacion__texto p {
+  font-family: 'Roboto Mono', sans-serif;
+  font-weight: 200;
+  font-style: italic;
+  font-size: 30px;
+  margin: 0;
+}
+
+.curriculum__enlace {
+  margin-top: 1rem;
+}
+
+.curriculum__enlace a {
+  font-family: 'Roboto Mono', sans-serif;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  background-color: #cf7cbd;
+  padding: 15px 30px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.curriculum__enlace a:hover {
+  background-color: #e9387f;
+}
+
+.curriculum__enlace img {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
 }
 
 /* Sección 'Sobre mí' */
 #sobre-mi {
-  padding: 2rem;
-  text-align: center;
+  padding: 5rem 5%; /* Ajuste dinámico del padding */
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left; /* Alineación del texto a la izquierda */
+  color: #1E211C; /* Color del texto */
+  background-color: #FFCADE; /* Fondo de la sección */
 }
 
-/* Ajustar el tamaño de las imágenes en 'Sobre mí' */
-.redes__img img {
-  width: 50px; 
-  height: auto; 
+/* Título 'Sobre mí' */
+#sobre-mi h2 {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 4rem;
+  font-weight: 400;
+  margin-left: 5%; /* Márgenes dinámicos */
+  margin-bottom: 1rem;
+  color: #FF5AAC;
 }
+
+/* Párrafo 'Sobre mí' */
+#sobre-mi p {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-left: 5%; /* Alineación con el título */
+  margin-right: 5%; /* Añade margen derecho */
+  text-align: justify; /* Justificación del texto */
+  color: #1E211C; /* Color del texto */
+}
+
 
 /* Eliminar las viñetas de la lista */
 .redes {
   list-style: none;
   padding: 0;
+  display: flex;
+  justify-content: center; /* Centra los íconos */
+  gap: 1rem; /* Espacio entre los íconos */
 }
 
 /* Estilo adicional para centrar y espaciar los íconos */
 .redes__img {
   display: inline-block;
-  margin: 0 15px;
+  margin-top: 1rem;
 }
 
-/* Skills */
+.redes__img a {
+  display: flex; /* Asegura que solo la imagen esté visible */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ajustar el tamaño de las imágenes en 'Sobre mí' */
+.redes__img img {
+  width: 40px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease; /* Transición suave para efectos */
+}
+
+/* Efecto al colocar el cursor encima */
+.redes__img img:hover {
+  transform: scale(1.2); /* Aumenta el tamaño un poco más al pasar el cursor */
+  filter: brightness(1.2); /* Aumenta el brillo */
+}
+
+/* Habilidades */
+.skills {
+  background-color: #a1dcc8; 
+  padding: 5rem 2rem; 
+  border-radius: 8px;
+}
+
+.skills__titulo {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 4rem; 
+  color: #ff5aac; 
+  text-align: center;
+  margin-bottom: 2rem; 
+}
+
 .habilidades__lista {
+  list-style: none;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  padding: 2rem;
-  list-style: none;
-  background-color: #FFD166; /* Fondo de secciones secundarias */
-  color: #FFF; /* Texto de secciones secundarias */
+  gap: 3rem; /* Aumentado el espacio entre elementos */
+  padding: 0;
 }
 
 .habilidades__elemento {
+  background-color: #ffcade; /* Fondo rosado */
+  border-radius: 0; /* Bordes más redondeados */
+  padding: 1.5rem; /* Espaciado dentro del cuadrado */
+  width: 150px; /* Aumentado el tamaño del cuadrado */
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrado horizontalmente */
+  justify-content: center; /* Centrado verticalmente */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.habilidades__elemento:hover {
+  transform: translateY(-8px); /* Efecto de desplazamiento más pronunciado */
+  background-color: #f8d964; /* Cambia a amarillo */
 }
 
 .habilidades__icono {
-  width: 50px;
-  height: auto;
-  color: #1F348F; 
-} 
+  width: 50px; /* Icono más grande */
+  height: 50px;
+  margin-bottom: 0.75rem; /* Separación ajustada debajo del icono */
+  color: #cf7cbd; /* Cambia este color según el estilo que prefieras */
+  transition: color 0.3s ease; /* Efecto de transición en el color */
+}
 
-/* Hobbies, formación, proyectos */
-#hobbies, #formacion, #proyectos {
-  padding: 2rem;
+.habilidades__elemento:hover .habilidades__icono {
+  color: #000000; /* Cambia el color al pasar el ratón por encima */
+}
+
+.habilidades__nombre {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.25rem; /* Aumentado el tamaño de letra */
+  color: #000000; /* Verde reseda */
+}
+
+/* Hobbies */
+.hobbies {
+  background-color: #f8d964; /* Fondo amarillo */
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.hobbies__titulo {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 4rem;
+  color: #778472; /* Verde reseda para el título */
   text-align: center;
-  background-color: #FFD166; /* Fondo de secciones secundarias */
-  color: #FFF; /* Texto de secciones secundarias */
+  margin-bottom: 2rem;
+}
+
+.hobbies__lista {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  padding: 0;
+}
+
+.hobbies__elemento {
+  background-color: #ff5aac; /* Fondo rosa */
+  margin-top: 0.5rem; /* Separación del icono */
+  padding: 1.5rem;
+  width: 150px;
+  height: 190px; /* Ajuste opcional para asegurar el tamaño uniforme */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hobbies__elemento:hover {
+  transform: translateY(-8px);
+  background-color: #cf7cbd; /* Cambia a magenta en hover */
+}
+
+.hobbies__icono {
+  width: 60px; /* Ajusta el tamaño de la imagen */
+  height: auto; /* Mantén la proporción */
+  margin-bottom: 0.75rem;
+  border-radius: 0px; /* Bordes redondeados para armonía */
+}
+
+.hobbies__nombre {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 1.25rem;
+  color: #161925; /* Color oscuro para el texto */
+  margin-top: 0.5rem; /* Separación del icono */
+}
+
+/* Sección de Formación */ 
+.formacion {
+  background-color: #ffffff; /* Color de fondo blanco */
+  padding: 3rem 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.formacion__titulo {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 2.5rem;
+  color: #161925; /* Texto en color casi negro */
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.formacion__lista {
+  list-style: none; /* Sin viñetas */
+  padding: 0;
+  display: flex; /* Usar flexbox para alinear elementos horizontalmente */
+  justify-content: space-around; /* Espacio entre los elementos */
+  gap: 2rem; /* Espaciado entre los elementos */
+}
+
+.formacion__item {
+  position: relative;
+  background-color: #a1dcc8; 
+  padding: 2rem; 
+  border-top-left-radius: 150px;
+  border-top-right-radius: 150px;
+  overflow: hidden; /* Para ocultar contenido que sobrepase */
+  width: 300px; /* Ancho fijo para cada "ventana" */
+  text-align: center; /* Centrar contenido */
+  display: flex; /* Usar flexbox para alinear elementos internamente */
+  flex-direction: column; /* Alinear verticalmente */
+  align-items: center; /* Centrar horizontalmente */
+  justify-content: center; /* Centrar verticalmente */
+}
+
+.formacion__logo {
+  width: 100px; /* Tamaño del logo */
+  height: auto; /* Mantener proporciones */
+  margin-bottom: 1rem; /* Espacio entre el logo y el texto */
+  z-index: 1; /* Asegurarse que el logo esté por encima del arco */
+}
+
+.formacion__contenido {
+  z-index: 1; /* Asegurarse que el contenido esté por encima del arco */
+}
+
+.formacion__grado {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 1.5rem; /* Aumentar tamaño de texto */
+  font-weight: bold;
+  color: #0e817f; /* Color tiffany blue para el título del grado */
+  margin: 0.5rem 0; /* Espaciado superior e inferior */
+}
+
+.formacion__institucion {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 1.25rem; /* Aumentar tamaño de texto */
+  color: #cf7cbd; /* Color sky magenta para el nombre de la institución */
+  margin: 0.25rem 0;
+}
+
+.formacion__fecha {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 1rem;
+  color: #778472;
+  margin: 0;
+}
+
+/* Sección de Proyectos */
+#proyectos {
+  padding: 5rem 2rem;
+  background-color: #cf7cbd;
+}
+
+#proyectos h2 {
+  font-family: 'Roboto Mono', 'Arial', sans-serif; 
+  font-size: 3rem;
+  color: #000000; /* Color del título */
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.proyecto {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff; /* Color de fondo del proyecto */
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.proyecto__imagen {
+  width: 30%; /* Ajusta el tamaño de la imagen */
+  height: auto;
+  border-radius: 10px;
+  margin-right: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.proyecto__imagen:hover {
+  transform: scale(1.05); /* Efecto de hover para aumentar el tamaño */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al pasar el cursor */
+}
+
+.proyecto__detalles {
+  flex: 1;
+  text-align: left;
+}
+
+.proyecto__detalles h3 {
+  font-family: 'Roboto Mono', 'Arial', sans-serif; /* Fuente de repuesto */
+  font-size: 2rem;
+  color: #000000; /* Color del título del proyecto */
+}
+
+.proyecto__detalles p {
+  font-family: 'Roboto Mono', 'Arial', sans-serif; /* Fuente de repuesto */
+  font-size: 1.2rem;
+  color: #000000; /* Color del texto */
+  margin-bottom: 1.5rem;
+}
+
+.proyecto__botones {
+  display: flex;
+  gap: 1rem;
+}
+
+.boton {
+  font-family: 'Roboto Mono', 'Arial', sans-serif; /* Fuente de repuesto */
+  text-decoration: none;
+  color: #FFF;
+  background: linear-gradient(45deg, #FF5AAC, #A1DCC8); /* Fondo degradado del botón */
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.boton:hover {
+  background: linear-gradient(45deg, #A1DCC8, #FFCADE); /* Fondo degradado del botón al pasar el cursor */
 }
 
 /* Sección de Contacto */
 #contacto {
-  padding: 2rem;
+  padding: 4rem;
   text-align: center;
-  background-color: #06D6A0; /* Fondo para la sección de contacto */
+  background-color: #FFCADE;  /* Fondo para la sección de contacto */
   color: #000000; /* Texto para la sección de contacto */
+}
+
+#contacto h2 {
+font-size: 2.5rem;
+margin-bottom: 1.5rem;
+margin-top: 1.5rem;
 }
 
 .contacto__formulario {
@@ -129,22 +567,15 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
-}
-
-.contacto__formulario label {
-  display: block;
-  text-align: left;
-  width: 100%;
-  font-weight: bold;
 }
 
 .contacto__formulario input,
 .contacto__formulario textarea {
   width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
+  padding: 0.9rem;
+  border: 1px solid #e28bac; 
   border-radius: 5px;
 }
 
@@ -160,83 +591,324 @@ body {
 }
 
 .contacto__formulario button:hover {
-  background-color: #028A57;
+  background-color: #10aa72;
 }
 
 /* Footer */
-footer {
-  background-color: #EF476F; /* Fondo del footer */
-  color: #FFF; /* Texto del footer */
+.footer {
+  background-color: #6e6b6b; /* Cambia el color según el estilo de tu portafolio */
+  color: #fff;
   text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
+  padding: 20px;
 }
 
-.dark-mode {
-  background-color: #073B4C; /* Fondo general para dark mode */
-  color: #FFD166; /* Texto para dark mode */
+.footer__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
-.dark-mode .cabecera {
-  background-color: #073B4C; /* Cabecera para dark mode */
+.footer__line {
+  width: 20%;
+  border: none;
+  border-top: 1px solid #fff;
 }
 
-.dark-mode a {
-  color: #FFD166; /* Enlaces para dark mode */
+.footer__icon {
+  width: 25px; /* Ajusta el tamaño según prefieras */
+  height: 25px;
+  filter: invert(100%); /* Para hacer los íconos blancos, si son oscuros */
 }
 
-.dark-mode .presentacion {
-  background-color: #073B4C; /* Fondo de presentación para dark mode */
+.footer__logo img {
+  width: 140px; /* Ajusta el tamaño de tu logo */
+  margin: 0%;
 }
 
-/* Agregando más secciones */
-.dark-mode #sobre-mi,
-.dark-mode #hobbies, 
-.dark-mode #formacion, 
-.dark-mode #proyectos {
-  background-color: #073B4C;
+.footer__text {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-top: 10px;
 }
 
-.dark-mode .habilidades__lista {
-  background-color: #073B4C !important; /* Fondo para dark mode */
-  color: #FFD166 !important; /* Texto para dark mode */
+/* Botón 'Volver Arriba' */
+#btnVolverArriba {
+  display: none; /* Oculto por defecto */
+  position: fixed; 
+  bottom: 20px; 
+  right: 30px; 
+  z-index: 99; 
+  border: none; 
+  outline: none; 
+  background-color: transparent; 
+  cursor: pointer;
+  padding: 15px; 
+  border-radius: 10px; 
+}
+#btnVolverArriba img {
+  width: 40px; 
+  height: 40px; 
+  transition: transform 0.3s, filter 0.3s;
+}
+#btnVolverArriba:hover img {
+  transform: scale(1.2);
+  filter: invert(52%) sepia(72%) saturate(515%) hue-rotate(304deg) brightness(95%) contrast(102%); 
 }
 
-.dark-mode .card {
-  background-color: #073B4C; /* Fondo para tarjetas (card) */
-  color: #FFD166; /* Texto para tarjetas en modo oscuro */
+/* Modo Nocturno */
+body.night-mode {
+  background-color: #2c2c2c; /* Fondo oscuro global */
+  color: #e0e0e0; /* Texto claro global */
 }
 
-.dark-mode #contacto {
-  background-color: #073B4C; /* Fondo para la sección de contacto en modo oscuro */
-  color: #FFD166; /* Texto para la sección de contacto en modo oscuro */
+/* Modo nocturno: estilos generales */
+body.night-mode h1,
+body.night-mode h2,
+body.night-mode h3,
+body.night-mode h4,
+body.night-mode h5,
+body.night-mode h6 {
+  color: #f8d964; /* Color claro para encabezados */
 }
 
-.dark-mode .contacto__formulario input,
-.dark-mode .contacto__formulario textarea {
-  background-color: #333; /* Fondo de los inputs en modo oscuro */
-  color: #FFF; /* Texto de los inputs en modo oscuro */
+body.night-mode p,
+body.night-mode li,
+body.night-mode span,
+body.night-mode a {
+  color: #e0e0e0; /* Color claro para texto */
 }
 
-.dark-mode .contacto__formulario button {
-  background-color: #FFD166;
-  color: #073B4C;
+/* Modo nocturno - Cabecera y Navegación */
+.night-mode .cabecera {
+  background: linear-gradient(90deg, #FF5AAC, #FFCADE, #cf7cbd, #000000); /* Degradado de tonos rosados, lilas y negro */
+  color: #ffffff; /* Texto claro para la cabecera */
+  border-bottom: 3px solid #444444; /* Borde inferior oscuro */
+
+}
+
+.night-mode .navegacion__elemento a {
+  color: #ffffff; /* Texto claro para los enlaces de navegación */
+}
+
+.night-mode .navegacion__elemento a:hover {
+  color: #ffcade; /* Color para el hover en modo nocturno */
+}
+
+/* Modo nocturno: Presentación */
+body.night-mode .presentacion {
+  background-color: #2c2c2c;
+}
+
+body.night-mode .presentacion__texto h1 {
+  color: #ffffff; /* Color claro para el h1 */
+}
+
+body.night-mode .presentacion__texto p {
+  color: #e0e0e0; /* Color claro para el texto del párrafo */
+}
+
+/* Modo nocturno: Sección Sobre mí */
+body.night-mode #sobre-mi {
+  background-color: #262626; /* Fondo oscuro */
+  color: #e0e0e0;
+}
+
+body.night-mode #sobre-mi h2 {
+  color: #ffcade; /* Color para el título */
+}
+
+body.night-mode #sobre-mi p {
+  color: #e0e0e0; /* Color para párrafos */
+}
+
+/* Modo nocturno: Habilidades */
+body.night-mode .skills {
+  background-color: #2c2c2c;
+  color: #f8d964;
+}
+body.night-mode .skills__titulo {
+  color: #ff5aac;
+}
+body.night-mode .habilidades__elemento {
+  background-color: #3a3a3a;
+}
+body.night-mode .habilidades__nombre {
+  color: #e0e0e0;
+}
+
+/* Modo nocturno: Hobbies */
+body.night-mode .hobbies {
+  background-color: #262626;
+  color: #ffcade;
+}
+body.night-mode .hobbies__titulo {
+  color: #f8d964;
+}
+body.night-mode .hobbies__elemento {
+  background-color: #333333;
+}
+body.night-mode .hobbies__nombre {
+  color: #e0e0e0;
+}
+
+/* Modo nocturno: Formación */
+body.night-mode .formacion {
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+}
+body.night-mode .formacion__item {
+  background: linear-gradient(70deg, #31302d, #000000);
+}
+body.night-mode .formacion__titulo {
+  color: #ffcade;
+}
+body.night-mode .formacion__grado,
+body.night-mode .formacion__institucion,
+body.night-mode .formacion__fecha {
+  color: #ffffff;
+}
+
+/* Modo nocturno: Proyectos */
+.night-mode #proyectos {
+  background-color: #262626; /* Fondo oscuro para el contenedor de proyectos */
+}
+
+.night-mode #proyectos h2 {
+  color: #ffffff; /* Color claro para el título de la sección */
+}
+
+.night-mode .proyecto {
+  background-color: #3b3b3b; /* Fondo oscuro para cada proyecto */
+  color: #ffffff; /* Texto en color claro */
+}
+
+.night-mode .proyecto__detalles h3 {
+  color: #ffffff; /* Color claro para el título de cada proyecto */
+}
+
+.night-mode .proyecto__detalles p {
+  color: #e0e0e0; /* Color gris claro para el texto descriptivo */
+}
+
+.night-mode .proyecto__imagen {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Sombra ligera para la imagen */
+}
+
+.night-mode .boton {
+  background: linear-gradient(45deg, #FFCADE, #A1DCC8); /* Fondo degradado claro para el botón */
+  color: #000000; /* Texto oscuro en el botón */
+}
+
+.night-mode .boton:hover {
+  background: linear-gradient(45deg, #A1DCC8, #FF5AAC); /* Cambia el degradado en hover */
 }
 
 
-.dark-mode footer {
-  background-color: #073B4C; /* Fondo para footer */
+
+/* Modo nocturno: Contacto */
+body.night-mode #contacto {
+  background-color: #1c1c1c;
+  color: #e0e0e0;
 }
+
+body.night-mode .contacto__formulario input,
+body.night-mode .contacto__formulario textarea {
+  background-color: #333333;
+  color: #e0e0e0;
+  border: 1px solid #f8d964;
+}
+
+body.night-mode .contacto__formulario button {
+  background-color: #ffcade;
+  color: #1b1b1b;
+}
+
+/* Modo nocturno: Footer */
+body.night-mode footer {
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+}
+
+body.night-mode .footer__icon {
+  filter: invert(100%);
+}
+
+body.night-mode .footer__logo img {
+  filter: invert(40%);
+}
+
 
 /* Responsivo */
-@media (max-width: 768px) {
-  .cabecera {
-    flex-direction: column;
+/* Estilos por defecto (para pantallas grandes como laptops y computadoras de escritorio) */
+body {
+  font-size: 16px; /* Ejemplo de estilo */
+}
+
+.header {
+  padding: 30px;
+}
+
+/* Para pantallas pequeñas como teléfonos */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px; /* Reducir el tamaño de la fuente */
   }
-  .navegacion__lista {
-    flex-direction: column;
+
+  .header {
+    padding: 10px;
   }
-  .habilidades__lista {
-    flex-direction: column;
+
+  /* Estilos específicos para teléfonos */
+  .contenedor {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .elemento {
+    flex: 1 1 100%; /* El ancho del elemento ocupará el 100% en pantallas pequeñas */
+  }
+}
+
+/* Para pantallas medianas como tabletas */
+@media (min-width: 601px) and (max-width: 992px) {
+  body {
+    font-size: 15px; /* Ajustar el tamaño de la fuente */
+  }
+
+  .header {
+    padding: 20px;
+  }
+
+  /* Estilos específicos para tabletas */
+  .contenedor {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .elemento {
+    flex: 1 1 50%; /* El ancho del elemento ocupará el 50% en pantallas medianas */
+  }
+}
+
+/* Para pantallas grandes como laptops y computadoras de escritorio */
+@media (min-width: 993px) {
+  body {
+    font-size: 16px; /* Tamaño de la fuente por defecto */
+  }
+
+  .header {
+    padding: 30px;
+  }
+
+  /* Estilos específicos para computadoras de escritorio y laptops */
+  .contenedor {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .elemento {
+    flex: 1 1 25%; /* El ancho del elemento ocupará el 25% en pantallas grandes */
   }
 }

@@ -8,6 +8,11 @@
   list-style: none;
 }
 
+/* Estilo para mantener visible el ícono del menú solo en pantallas pequeñas (teléfonos) */
+.menu-toggle {
+  display: none; /* Oculta el ícono por defecto */
+}
+
 /* Animación del Logotipo */
 @keyframes pulso {
   0% { transform: scale(1); }
@@ -841,74 +846,106 @@ body.night-mode .footer__logo img {
 
 
 /* Responsivo */
-/* Estilos por defecto (para pantallas grandes como laptops y computadoras de escritorio) */
-body {
-  font-size: 16px; /* Ejemplo de estilo */
-}
-
-.header {
-  padding: 30px;
+/* Para pantallas medianas como tabletas */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .presentacion {
+    padding-bottom: 2rem; /* Ajusta según el espacio que necesites */
+  }
+  .presentacion__foto {
+      width: 250px; /* Reducción del tamaño de la foto */
+      height: 250px;
+      margin-bottom: 2rem;
+  }
+  .presentacion__texto h1 {
+      font-size: 50px; /* Ajuste del título */
+  }
+  .presentacion__texto p {
+      font-size: 20px; /* Ajuste del párrafo */
+  }
+  .habilidades__elemento, .hobbies__elemento {
+      width: 120px;
+      height: 160px;
+  }
+  .hobbies__elemento {
+    padding: 1rem; /* Reduce el padding interno si es necesario */
+  }
+.hobbies__nombre {
+    font-size: 1rem; /* Reduce el tamaño del texto ligeramente */
+    word-wrap: break-word; /* Permite que las palabras se ajusten si son largas */
+  }
 }
 
 /* Para pantallas pequeñas como teléfonos */
-@media (max-width: 600px) {
-  body {
-    font-size: 14px; /* Reducir el tamaño de la fuente */
+@media (max-width: 767px) { 
+  .cabecera {
+    height: 50px; /* Altura más pequeña en pantallas pequeñas */
+    justify-content: space-between; /* Ajusta el contenido a los lados */
   }
 
-  .header {
-    padding: 10px;
+  /* Ajustamos el tamaño de la imagen del logo en pantallas pequeñas */
+  .cabecera__logo {
+    max-width: 80px; /* Tamaño reducido para el logo */
   }
-
-  /* Estilos específicos para teléfonos */
-  .contenedor {
+  .menu-toggle {
+    display: block; /* Hace visible el ícono en pantallas pequeñas */
+    position: absolute; /* Asegura que se quede en la misma posición de la cabecera */
+    right: 70px; /* Ajusta el espacio a la derecha según lo necesites */
+    top: 50%; /* Centra el ícono verticalmente */
+    transform: translateY(-50%); /* Alinea el ícono verticalmente */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100; 
+  }
+    /* Ajustamos el tamaño de la imagen del menú */
+  .menu-toggle img {
+    width: 30px; 
+    height: auto; 
+  }
+  /* Menú desplegable */
+  .navegacion__lista {
+    list-style: none;
     display: flex;
-    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    display: none; /* Inicialmente oculto */
+    position: absolute;
+    top: 70px; /* Ajusta según la altura de la cabecera */
+    left: 0;
+    width: 100%;
+    background-color: #a1dcc8;
+    padding: 1rem 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
   }
 
-  .elemento {
-    flex: 1 1 100%; /* El ancho del elemento ocupará el 100% en pantallas pequeñas */
-  }
-}
-
-/* Para pantallas medianas como tabletas */
-@media (min-width: 601px) and (max-width: 992px) {
-  body {
-    font-size: 15px; /* Ajustar el tamaño de la fuente */
+  /* Menú desplegable visible */
+  .navegacion__lista.active {
+    display: flex; /* Muestra el menú cuando tiene la clase 'active' */
+    flex-direction: column;
   }
 
-  .header {
-    padding: 20px;
+  .cabecera {
+      flex-direction: column; /* Acomoda la cabecera en una columna */
+      height: auto;
   }
-
-  /* Estilos específicos para tabletas */
-  .contenedor {
-    display: flex;
-    flex-wrap: wrap;
+  .presentacion {
+      flex-direction: column; /* Acomoda en una sola columna */
+      gap: 1rem;
   }
-
-  .elemento {
-    flex: 1 1 50%; /* El ancho del elemento ocupará el 50% en pantallas medianas */
+  .presentacion__foto {
+      width: 200px;
+      height: 200px;
   }
-}
-
-/* Para pantallas grandes como laptops y computadoras de escritorio */
-@media (min-width: 993px) {
-  body {
-    font-size: 16px; /* Tamaño de la fuente por defecto */
+  .presentacion__texto h1 {
+      font-size: 35px; /* Texto del título más pequeño */
   }
-
-  .header {
-    padding: 30px;
+  .presentacion__texto p {
+      font-size: 18px; /* Texto del párrafo más pequeño */
   }
-
-  /* Estilos específicos para computadoras de escritorio y laptops */
-  .contenedor {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .elemento {
-    flex: 1 1 25%; /* El ancho del elemento ocupará el 25% en pantallas grandes */
+  .habilidades__elemento, .hobbies__elemento {
+      width: 100px;
+      height: 140px;
   }
 }
